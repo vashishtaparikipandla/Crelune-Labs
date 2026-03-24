@@ -1,1 +1,706 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Crelune Labs Home</title>\n    <link rel="stylesheet" href="styles.css">\n    <style>\n        body {\n            background-color: #080808;\n            color: white;\n            font-family: Arial, sans-serif;\n        }\n        .primary { color: #e05a20; }\n        .secondary { color: #c060d8; }\n        /* Add animations and other styles here */\n    </style>\n</head>\n<body>\n    <header>\n        <nav>\n            <!-- Navigation menu here -->\n        </nav>\n    </header>\n    <section class="hero">\n        <!-- Hero section with animated bars -->\n    </section>\n    <section class="labs">\n        <!-- Lab cards here -->\n    </section>\n    <section class="cycle">\n        <!-- Cycle section -->\n    </section>\n    <section class="problems">\n        <!-- Problems section -->\n    </section>\n    <section class="work">\n        <!-- Work section -->\n    </section>\n    <section class="team">\n        <!-- Human team section -->\n    </section>\n    <section class="principles">\n        <!-- Principles section -->\n    </section>\n    <section class="refuse">\n        <!-- Refuse section -->\n    </section>\n    <section class="screenshot-wall">\n        <!-- Screenshot wall with filters -->\n    </section>\n    <section class="brands">\n        <!-- Brands section -->\n    </section>\n    <section class="notebook-strip">\n        <!-- Notebook strip -->\n    </section>\n    <section class="roast">\n        <!-- Roast section -->\n    </section>\n    <section class="contact">\n        <!-- Contact form -->\n    </section>\n    <footer>\n        <!-- Footer section -->\n    </footer>\n    <script>\n        // Custom cursor effect and JavaScript functionality here\n        // Scroll reveal animations, mobile menu, and navigation scroll effects\n    </script>\n</body>\n</html>\n
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Crelune — Digital Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400;1,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;
+  --s1:#111111;
+  --s2:#181818;
+  --s3:#202020;
+  --s4:#2a2a2a;
+  --ink:#ede9e3;
+  --ink-mid:#6e6b65;
+  --ink-dim:#2e2e2c;
+  --primary:#e05a20;
+  --secondary:#c060d8;
+  --grad:linear-gradient(135deg,#e05a20 0%,#c060d8 100%);
+  --grad-text:linear-gradient(135deg,#f07030 0%,#d070e0 100%);
+  --r-sm:8px;--r-md:14px;--r-lg:22px;--r-full:9999px;
+  --ease:0.38s cubic-bezier(0.22,1,0.36,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* ── CURSOR ── */
+#cur{position:fixed;width:10px;height:10px;background:var(--ink);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .18s,height .18s,background .18s;mix-blend-mode:screen}
+#ring{position:fixed;width:38px;height:38px;border:1.5px solid rgba(237,233,227,.2);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .4s var(--ease),height .4s var(--ease),border-color .3s}
+body:has(a:hover) #cur,body:has(button:hover) #cur{width:5px;height:5px}
+body:has(a:hover) #ring,body:has(button:hover) #ring{width:58px;height:58px;border-color:var(--primary)}
+
+/* ── NAV ── */
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);width:calc(100% - 48px);max-width:1200px;z-index:100;background:rgba(8,8,8,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--r-full);padding:13px 26px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 40px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.05);transition:background .3s}
+.nav-logo{font-family:'Newsreader',serif;font-weight:600;font-size:1.3rem;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em;text-decoration:none}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:14px;font-weight:500;color:var(--ink-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:13px;font-weight:600;background:var(--grad);color:#fff;border:none;border-radius:var(--r-full);padding:8px 20px;cursor:none;transition:opacity .2s,transform .2s;letter-spacing:.01em}
+.nav-cta:hover{opacity:.82;transform:translateY(-1px)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px}
+.nav-burger span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px}
+.mob-menu{display:none;flex-direction:column;position:fixed;top:86px;left:24px;right:24px;background:rgba(14,14,14,.97);backdrop-filter:blur(20px);border-radius:var(--r-lg);padding:12px;z-index:99;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+.mob-menu.open{display:flex}
+.mob-menu a{padding:13px 16px;font-weight:500;font-size:15px;color:var(--ink);text-decoration:none;border-radius:var(--r-sm);transition:background .2s}
+.mob-menu a:hover{background:var(--s3)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;padding:140px 24px 80px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-orb{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(224,90,32,.11) 0%,rgba(192,96,216,.07) 50%,transparent 70%);pointer-events:none;animation:orbFloat 8s ease-in-out infinite;top:-120px;right:-180px}
+.hero-orb2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(192,96,216,.08) 0%,transparent 65%);pointer-events:none;animation:orbFloat 10s 3s ease-in-out infinite;bottom:-100px;left:-100px}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-28px,36px) scale(1.04)}}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--primary)}
+.hero-headline{font-family:'Newsreader',serif;font-weight:600;font-size:clamp(3rem,7vw,6.4rem);line-height:1.02;letter-spacing:-.04em;text-align:center;max-width:920px;color:var(--ink)}
+.hero-headline em{font-style:italic;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{margin-top:26px;font-size:clamp(.93rem,1.4vw,1.08rem);font-weight:400;color:var(--ink-mid);text-align:center;max-width:500px;line-height:1.75}
+.hero-actions{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-grad{background:var(--grad);color:#fff;font-family:'Manrope',sans-serif;font-weight:600;font-size:15px;border:none;border-radius:var(--r-full);padding:13px 30px;cursor:none;transition:opacity .2s,transform .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-grad:hover{opacity:.82;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);font-family:'Manrope',sans-serif;font-weight:500;font-size:15px;border:1.5px solid rgba(237,233,227,.15);border-radius:var(--r-full);padding:12px 26px;cursor:none;transition:border-color .2s,background .2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-ghost:hover{border-color:rgba(237,233,227,.35);background:var(--s2)}
+.hero-banner{margin-top:76px;width:100%;max-width:1100px;border-radius:var(--r-lg);overflow:hidden;position:relative;aspect-ratio:16/7}
+.hero-banner-inner{width:100%;height:100%;background:linear-gradient(135deg,#130d06 0%,#0e0618 50%,#060e0e 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-bars{position:absolute;inset:0;display:flex;align-items:flex-end;gap:3px;padding:20px;opacity:.6}
+.hbar{flex:1;border-radius:3px 3px 0 0;animation:bBreath 3s ease-in-out infinite}
+@keyframes bBreath{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+.hbar:nth-child(1){height:55%;background:linear-gradient(180deg,#e05a20,#a03010);animation-delay:0s}
+.hbar:nth-child(2){height:70%;background:linear-gradient(180deg,#d060d8,#9030a8);animation-delay:.1s}
+.hbar:nth-child(3){height:42%;background:linear-gradient(180deg,#e07030,#c04020);animation-delay:.2s}
+.hbar:nth-child(4){height:85%;background:linear-gradient(180deg,#c060d8,#8020b0);animation-delay:.3s}
+.hbar:nth-child(5){height:50%;background:linear-gradient(180deg,#d05020,#a03010);animation-delay:.4s}
+.hbar:nth-child(6){height:75%;background:linear-gradient(180deg,#c050c8,#9030a0);animation-delay:.5s}
+.hbar:nth-child(7){height:38%;background:linear-gradient(180deg,#e06030,#c04020);animation-delay:.6s}
+.hbar:nth-child(8){height:90%;background:linear-gradient(180deg,#a030c0,#7020a0);animation-delay:.7s}
+.hbar:nth-child(9){height:62%;background:linear-gradient(180deg,#e05a20,#d07030);animation-delay:.8s}
+.hbar:nth-child(10){height:48%;background:linear-gradient(180deg,#b040c0,#9030a8);animation-delay:.9s}
+.hbar:nth-child(11){height:78%;background:linear-gradient(180deg,#d05020,#e06030);animation-delay:1s}
+.hbar:nth-child(12){height:55%;background:linear-gradient(180deg,#9030b0,#c050c8);animation-delay:1.1s}
+.banner-label{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.8rem);color:rgba(237,233,227,.16);letter-spacing:-.02em;user-select:none;position:relative;z-index:1}
+
+/* ── LAYOUT ── */
+section{padding:100px 24px}
+.container{max-width:1200px;margin:0 auto}
+.container-narrow{max-width:720px;margin:0 auto}
+.s-label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.s-label::before{content:'';display:block;width:18px;height:1px;background:var(--primary)}
+.s-title{font-family:'Newsreader',serif;font-weight:600;font-size:clamp(1.9rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.035em;color:var(--ink);margin-bottom:18px}
+.s-title em{font-style:italic;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.s-body{font-size:.97rem;font-weight:400;color:var(--ink-mid);line-height:1.75;max-width:620px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:52px}
+
+/* ── LAB SECTION ── */
+.sec-lab{background:var(--s1)}
+.lab-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.lab-card{background:var(--s3);border-radius:var(--r-md);overflow:hidden;cursor:none;transition:transform var(--ease),box-shadow var(--ease)}
+.lab-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(0,0,0,.55)}
+.lab-card-img{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.lab-card:nth-child(1) .lab-card-img{background:linear-gradient(135deg,#1e0e06,#2a1208)}
+.lab-card:nth-child(2) .lab-card-img{background:linear-gradient(135deg,#0e0a1e,#140a28)}
+.lab-card:nth-child(3) .lab-card-img{background:linear-gradient(135deg,#0a1a0c,#0c2210)}
+.lab-card:nth-child(4) .lab-card-img{background:linear-gradient(135deg,#1c1806,#24200a)}
+.lab-icon{width:44px;height:44px;border-radius:50%;background:rgba(237,233,227,.07);display:flex;align-items:center;justify-content:center;font-size:18px}
+.lab-card-body{padding:18px}
+.lab-title{font-weight:600;font-size:.9rem;color:var(--ink);line-height:1.45}
+
+/* ── CYCLE ── */
+.sec-cycle{background:var(--bg)}
+.cycle-row{display:flex;margin-top:52px;position:relative}
+.cycle-row::before{content:'';position:absolute;top:54px;left:54px;right:54px;height:1px;background:linear-gradient(90deg,var(--primary),var(--secondary));opacity:.18;z-index:0}
+.c-step{flex:1;display:flex;flex-direction:column;align-items:center;gap:14px;position:relative;z-index:1;cursor:none}
+.c-circle{width:108px;height:108px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--s2);border:1.5px solid transparent;transition:border-color var(--ease),transform var(--ease),background var(--ease);position:relative}
+.c-circle::before{content:attr(data-n);position:absolute;top:-3px;right:-3px;width:22px;height:22px;border-radius:50%;background:var(--grad);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.c-step:hover .c-circle{border-color:var(--primary);transform:scale(1.08);background:linear-gradient(135deg,rgba(224,90,32,.1),rgba(192,96,216,.1))}
+.c-icon{font-size:26px}
+.c-label{font-weight:500;font-size:.85rem;color:var(--ink-mid);text-align:center;transition:color var(--ease)}
+.c-step:hover .c-label{color:var(--ink)}
+
+/* ── PROBLEMS ── */
+.sec-problems{background:var(--s1)}
+.prob-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:52px;align-items:start}
+.prob-item{padding:20px 0;border-bottom:1px solid rgba(237,233,227,.07);display:flex;gap:14px;align-items:flex-start;cursor:none;transition:padding-left var(--ease)}
+.prob-item:hover{padding-left:8px}
+.prob-item:first-child{padding-top:0}
+.prob-num{font-family:'Newsreader',serif;font-style:italic;font-size:1.3rem;color:var(--ink-dim);flex-shrink:0;width:30px;transition:color var(--ease)}
+.prob-item:hover .prob-num{color:var(--primary)}
+.prob-title{font-weight:600;font-size:.95rem;color:var(--ink);margin-bottom:4px}
+.prob-desc{font-size:.875rem;color:var(--ink-mid);line-height:1.65}
+.prob-img{background:linear-gradient(160deg,#18100a,#100818);border-radius:var(--r-lg);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:sticky;top:120px}
+.prob-img-text{font-family:'Newsreader',serif;font-style:italic;font-size:1.2rem;color:rgba(237,233,227,.16);text-align:center;padding:32px;line-height:1.6}
+
+/* ── WORK ── */
+.sec-work{background:var(--bg)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.wcard{border-radius:var(--r-lg);display:flex;align-items:flex-end;padding:24px;cursor:none;transition:transform var(--ease);min-height:200px}
+.wcard:hover{transform:scale(1.015)}
+.wcard-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,233,227,.38);margin-bottom:6px}
+.wcard-title{font-family:'Newsreader',serif;font-size:clamp(.95rem,1.6vw,1.2rem);font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.w1{grid-column:span 2;aspect-ratio:2/1;background:linear-gradient(135deg,#1e100a,#2a1a2a)}
+.w2{aspect-ratio:1;background:linear-gradient(135deg,#0e0a1e,#181028)}
+.w3{aspect-ratio:1;background:linear-gradient(135deg,#0a180e,#0c2212)}
+.w4{grid-column:span 2;aspect-ratio:2/1;background:linear-gradient(135deg,#1c1806,#20100e)}
+
+/* ── HUMAN ── */
+.sec-human{background:var(--s1)}
+.human-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:52px}
+.hcard{background:var(--s3);border-radius:var(--r-md);overflow:hidden;cursor:none;transition:transform var(--ease)}
+.hcard:hover{transform:translateY(-4px)}
+.hcard-img{width:100%;aspect-ratio:1}
+.hcard:nth-child(1) .hcard-img{background:linear-gradient(135deg,#1e0e08,#2a1610)}
+.hcard:nth-child(2) .hcard-img{background:linear-gradient(135deg,#10081e,#180c28)}
+.hcard:nth-child(3) .hcard-img{background:linear-gradient(135deg,#0c1c0e,#0c2412)}
+.hcard:nth-child(4) .hcard-img{background:linear-gradient(135deg,#1c1808,#22200c)}
+.hcard:nth-child(5) .hcard-img{background:linear-gradient(135deg,#080e1e,#0c1428)}
+.hcard:nth-child(6) .hcard-img{background:linear-gradient(135deg,#1c0810,#261018)}
+.hcard-label{padding:12px;font-size:.78rem;font-weight:500;color:var(--ink-mid);text-align:center}
+
+/* ── PRINCIPLES ── */
+.sec-principles{background:var(--bg)}
+.prin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:52px;background:rgba(237,233,227,.04);border-radius:var(--r-lg);overflow:hidden}
+.prin-card{background:var(--bg);padding:30px 22px;cursor:none;transition:background var(--ease);position:relative;overflow:hidden}
+.prin-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--grad);transition:width var(--ease)}
+.prin-card:hover{background:var(--s2)}
+.prin-card:hover::after{width:100%}
+.prin-num{font-family:'Newsreader',serif;font-style:italic;font-size:2.4rem;font-weight:400;color:rgba(237,233,227,.05);margin-bottom:14px;line-height:1}
+.prin-text{font-weight:500;font-size:.92rem;color:var(--ink);line-height:1.55}
+
+/* ── REFUSE ── */
+.sec-refuse{background:var(--s1)}
+.refuse-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px}
+.rcard{background:var(--s3);border-radius:var(--r-md);overflow:hidden;cursor:none;transition:transform var(--ease),box-shadow var(--ease)}
+.rcard:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(0,0,0,.55)}
+.rcard-img{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center}
+.rcard:nth-child(1) .rcard-img{background:linear-gradient(135deg,#180606,#240a0a)}
+.rcard:nth-child(2) .rcard-img{background:linear-gradient(135deg,#060618,#0a0a24)}
+.rcard:nth-child(3) .rcard-img{background:linear-gradient(135deg,#061606,#0a2208)}
+.rcard:nth-child(4) .rcard-img{background:linear-gradient(135deg,#161604,#222206)}
+.rx{width:36px;height:36px;position:relative}
+.rx::before,.rx::after{content:'';position:absolute;top:50%;left:0;width:100%;height:1.5px;background:rgba(237,233,227,.18);transform-origin:center}
+.rx::before{transform:translateY(-50%) rotate(45deg)}
+.rx::after{transform:translateY(-50%) rotate(-45deg)}
+.rcard-body{padding:18px}
+.rcard-title{font-weight:600;font-size:.9rem;color:var(--ink)}
+
+/* ── FILTER TABS ── */
+.ftabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;margin-bottom:34px}
+.ftab{font-family:'Manrope',sans-serif;font-size:13px;font-weight:500;border:1.5px solid rgba(237,233,227,.12);background:transparent;color:var(--ink-mid);border-radius:var(--r-full);padding:8px 18px;cursor:none;transition:all .2s}
+.ftab.active,.ftab:hover{border-color:var(--primary);color:var(--primary);background:rgba(224,90,32,.08)}
+
+/* ── WALL ── */
+.sec-wall{background:var(--bg)}
+.wall-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.witem{aspect-ratio:1;border-radius:var(--r-sm);cursor:none;transition:transform var(--ease),box-shadow var(--ease),opacity .25s;overflow:hidden;position:relative}
+.witem:hover{transform:scale(1.06);box-shadow:0 16px 44px rgba(0,0,0,.55);z-index:2}
+.witem:nth-child(1){background:linear-gradient(135deg,#1e0e08,#2a1810)}
+.witem:nth-child(2){background:linear-gradient(135deg,#0e0818,#180c24)}
+.witem:nth-child(3){background:linear-gradient(135deg,#081808,#0a2210)}
+.witem:nth-child(4){background:linear-gradient(135deg,#1c1808,#241e0a)}
+.witem:nth-child(5){background:linear-gradient(135deg,#08101c,#0c1628)}
+.witem:nth-child(6){background:linear-gradient(135deg,#1c0810,#26101c)}
+.witem:nth-child(7){background:linear-gradient(135deg,#121c08,#18260c)}
+.witem-label{position:absolute;bottom:7px;left:7px;right:7px;font-size:8.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(237,233,227,.28)}
+
+/* ── BRANDS ── */
+.sec-brands{background:var(--s1)}
+.brand-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.btile{aspect-ratio:3/2;border-radius:var(--r-sm);background:var(--s3);cursor:none;display:flex;align-items:center;justify-content:center;transition:transform var(--ease),box-shadow var(--ease)}
+.btile:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.45)}
+.btile-text{font-family:'Newsreader',serif;font-style:italic;font-size:.82rem;color:var(--ink-mid)}
+
+/* ── NOTEBOOK STRIP ── */
+.notebook-strip{background:var(--s1);border-top:1px solid rgba(237,233,227,.06);border-bottom:1px solid rgba(237,233,227,.06);padding:80px 24px}
+.nb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px}
+.nb-title{font-family:'Newsreader',serif;font-weight:600;font-size:clamp(1.7rem,3.5vw,2.7rem);letter-spacing:-.03em;color:var(--ink);line-height:1.15}
+.nb-title em{font-style:italic;color:var(--ink-mid)}
+
+/* ── ROAST ── */
+.sec-roast{background:var(--bg)}
+.roast-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.roast-preview{background:var(--s2);border-radius:var(--r-lg);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center}
+
+/* ── CONTACT ── */
+.sec-contact{background:var(--s1);padding:120px 24px}
+.cform{display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto}
+.cinput{width:100%;padding:14px 20px;border:1.5px solid rgba(237,233,227,.1);border-radius:var(--r-full);font-family:'Manrope',sans-serif;font-size:14px;background:var(--s2);color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none}
+.cinput::placeholder{color:var(--ink-mid)}
+.cinput:focus{border-color:rgba(224,90,32,.5)}
+.ctextarea{border-radius:var(--r-md);resize:vertical;min-height:120px}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);padding:60px 24px 40px;border-top:1px solid rgba(237,233,227,.06)}
+.foot-top{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(237,233,227,.06)}
+.foot-logo{font-family:'Newsreader',serif;font-weight:600;font-size:1.5rem;letter-spacing:-.03em;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot-tag{font-size:.82rem;margin-top:6px;color:rgba(237,233,227,.28)}
+.foot-col-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,233,227,.2);margin-bottom:14px}
+.foot-links{display:flex;flex-direction:column;gap:10px}
+.foot-links a{font-size:.855rem;color:rgba(237,233,227,.38);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--ink)}
+.foot-bottom{max-width:1200px;margin:0 auto;padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11.5px;color:rgba(237,233,227,.2)}
+
+/* ── REVEAL ANIMATION ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .lab-grid{grid-template-columns:repeat(2,1fr)}
+  .human-grid{grid-template-columns:repeat(3,1fr)}
+  .wall-grid{grid-template-columns:repeat(4,1fr)}
+  .brand-grid{grid-template-columns:repeat(4,1fr)}
+  .prin-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  section{padding:72px 20px}
+  .nav-links{display:none}.nav-burger{display:flex}
+  .two-col{grid-template-columns:1fr;gap:28px}
+  .cycle-row{flex-wrap:wrap;gap:24px}
+  .cycle-row::before{display:none}
+  .c-step{flex:0 0 calc(33.33% - 16px)}
+  .prob-layout{grid-template-columns:1fr}
+  .prob-img{display:none}
+  .work-grid{grid-template-columns:1fr 1fr}
+  .w1,.w4{grid-column:span 2}
+  .refuse-grid{grid-template-columns:1fr 1fr}
+  .roast-layout{grid-template-columns:1fr}
+  .human-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:480px){
+  .lab-grid,.refuse-grid{grid-template-columns:1fr}
+  .wall-grid{grid-template-columns:repeat(3,1fr)}
+  .brand-grid{grid-template-columns:repeat(2,1fr)}
+  .human-grid{grid-template-columns:repeat(2,1fr)}
+  .prin-grid{grid-template-columns:1fr}
+  .c-step{flex:0 0 calc(50% - 12px)}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="ring"></div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="#">Crelune</a>
+  <div class="nav-links">
+    <a href="#lab">The Lab</a>
+    <a href="#work">Work</a>
+    <a href="#principles">Principles</a>
+    <a href="#notebook">Notebook</a>
+    <!-- ✏️ EDITABLE CTA label -->
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start an Experiment ↗</button>
+  </div>
+  <button class="nav-burger" onclick="toggleMob()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#lab" onclick="toggleMob()">The Lab</a>
+  <a href="#work" onclick="toggleMob()">Work</a>
+  <a href="#principles" onclick="toggleMob()">Principles</a>
+  <a href="#notebook" onclick="toggleMob()">Notebook</a>
+  <a href="#contact" onclick="toggleMob()">Start an Experiment</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb2"></div>
+  <!-- ✏️ EDITABLE -->
+  <div class="hero-eyebrow rv">Digital Studio · Research-Driven Design</div>
+  <h1 class="hero-headline rv d1">Where <em>bold brands</em> come to build their next experience</h1>
+  <p class="hero-sub rv d2">We help ambitious brands transform complex ideas into bold digital experiences through research-driven creative design.</p>
+  <div class="hero-actions rv d3">
+    <!-- ✏️ EDITABLE button labels -->
+    <a href="#contact" class="btn-grad">Start an Experiment ↗</a>
+    <a href="#work" class="btn-ghost">See Our Work</a>
+  </div>
+  <div class="hero-banner rv d4">
+    <div class="hero-banner-inner">
+      <div class="hero-bars">
+        <div class="hbar"></div><div class="hbar"></div><div class="hbar"></div>
+        <div class="hbar"></div><div class="hbar"></div><div class="hbar"></div>
+        <div class="hbar"></div><div class="hbar"></div><div class="hbar"></div>
+        <div class="hbar"></div><div class="hbar"></div><div class="hbar"></div>
+      </div>
+      <!-- ✏️ EDITABLE -->
+      <span class="banner-label">Crelune Lab / 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY WE BUILT A LAB ══ -->
+<section class="sec-lab" id="lab">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="s-label rv">Our Philosophy</span>
+        <!-- ✏️ EDITABLE -->
+        <h2 class="s-title rv d1">Why We Built<br/><em>a Lab</em></h2>
+      </div>
+      <p class="s-body rv d2">Most agencies execute. We experiment. The lab is where we stress-test assumptions, challenge briefs, and prototype before a single pixel goes to production. Because design without thinking is just decoration.</p>
+    </div>
+    <div class="lab-grid">
+      <!-- ✏️ EDITABLE card titles -->
+      <div class="lab-card rv"><div class="lab-card-img"><div class="lab-icon">🔬</div></div><div class="lab-card-body"><div class="lab-title">Design is more of a discovery</div></div></div>
+      <div class="lab-card rv d1"><div class="lab-card-img"><div class="lab-icon">👁</div></div><div class="lab-card-body"><div class="lab-title">Good products come from observation</div></div></div>
+      <div class="lab-card rv d2"><div class="lab-card-img"><div class="lab-icon">⚗️</div></div><div class="lab-card-body"><div class="lab-title">Ideas should be tested before they scale</div></div></div>
+      <div class="lab-card rv d3"><div class="lab-card-img"><div class="lab-icon">🧠</div></div><div class="lab-card-body"><div class="lab-title">Creativity without thinking is decoration</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIMENT CYCLE ══ -->
+<section class="sec-cycle">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="s-label rv">How We Work</span>
+        <h2 class="s-title rv d1">Our Experiment<br/><em>Cycle</em></h2>
+      </div>
+      <p class="s-body rv d2">Every project moves through the same rigorous loop — from raw observation to shipped product. No skipped steps, no assumptions baked in unchecked.</p>
+    </div>
+    <div class="cycle-row">
+      <!-- ✏️ EDITABLE step labels -->
+      <div class="c-step rv"><div class="c-circle" data-n="01"><div class="c-icon">🔭</div></div><div class="c-label">Observe</div></div>
+      <div class="c-step rv d1"><div class="c-circle" data-n="02"><div class="c-icon">❓</div></div><div class="c-label">Question</div></div>
+      <div class="c-step rv d2"><div class="c-circle" data-n="03"><div class="c-icon">🛠</div></div><div class="c-label">Prototype</div></div>
+      <div class="c-step rv d3"><div class="c-circle" data-n="04"><div class="c-icon">🧪</div></div><div class="c-label">Testing</div></div>
+      <div class="c-step rv d4"><div class="c-circle" data-n="05"><div class="c-icon">✏️</div></div><div class="c-label">Refine</div></div>
+      <div class="c-step rv" style="transition-delay:.5s"><div class="c-circle" data-n="06"><div class="c-icon">🚀</div></div><div class="c-label">Launch</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROBLEMS WE LOVE SOLVING ══ -->
+<section class="sec-problems" id="problems">
+  <div class="container">
+    <span class="s-label rv">Our Specialty</span>
+    <h2 class="s-title rv d1">The Problems<br/><em>We Love</em> Solving</h2>
+    <div class="prob-layout">
+      <div>
+        <div class="prob-item rv">
+          <div class="prob-num">01</div>
+          <div>
+            <!-- ✏️ EDITABLE -->
+            <div class="prob-title">Complex products that confuse users</div>
+            <div class="prob-desc">When a product has power but no clarity, users leave. We untangle complexity into flows that feel obvious.</div>
+          </div>
+        </div>
+        <div class="prob-item rv d1">
+          <div class="prob-num">02</div>
+          <div>
+            <div class="prob-title">Beautiful interfaces with terrible UX</div>
+            <div class="prob-desc">Looks aren't enough. We rebuild the invisible architecture so beauty and function move together.</div>
+          </div>
+        </div>
+        <div class="prob-item rv d2">
+          <div class="prob-num">03</div>
+          <div>
+            <div class="prob-title">Products that grew too fast to stay simple</div>
+            <div class="prob-desc">Growth creates debt — feature, UX, and brand debt. We help you pay it down without slowing down.</div>
+          </div>
+        </div>
+        <div class="prob-item rv d3">
+          <div class="prob-num">04</div>
+          <div>
+            <div class="prob-title">New ideas with no design playbook yet</div>
+            <div class="prob-desc">0-to-1 is our favourite terrain. We bring structure to ambiguity and shape to ideas never designed before.</div>
+          </div>
+        </div>
+      </div>
+      <div class="prob-img rv d1">
+        <!-- ✏️ EDITABLE -->
+        <div class="prob-img-text">Your most complex problem<br/>is our most interesting brief.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIMENTS THAT WORKED ══ -->
+<section class="sec-work" id="work">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="s-label rv">Selected Work</span>
+        <h2 class="s-title rv d1">Experiments<br/><em>That Worked</em></h2>
+      </div>
+      <p class="s-body rv d2">Not every experiment ships. These did — because they solved something real, looked like nothing else, and held up under scrutiny.</p>
+    </div>
+    <div class="work-grid rv">
+      <!-- ✏️ EDITABLE project cards -->
+      <div class="wcard w1"><div><div class="wcard-tag">Branding · Web</div><div class="wcard-title">Project Title</div></div></div>
+      <div class="wcard w2"><div><div class="wcard-tag">App Design</div><div class="wcard-title">Project Title</div></div></div>
+      <div class="wcard w3"><div><div class="wcard-tag">Strategy</div><div class="wcard-title">Project Title</div></div></div>
+      <div class="wcard w4"><div><div class="wcard-tag">Identity · Motion</div><div class="wcard-title">Project Title</div></div></div>
+    </div>
+    <div style="margin-top:28px;display:flex;justify-content:center">
+      <a href="#" class="btn-ghost">View All Projects ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HUMAN SIDE INSIDE THE LAB ══ -->
+<section class="sec-human">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="s-label rv">Inside the Lab</span>
+        <h2 class="s-title rv d1">The Human Side<br/><em>Inside the Lab</em></h2>
+      </div>
+      <!-- ✏️ EDITABLE -->
+      <p class="s-body rv d2">Six people who believe the best design comes from caring deeply, arguing loudly, and documenting everything.</p>
+    </div>
+    <div class="human-grid">
+      <!-- ✏️ EDITABLE team names & roles -->
+      <div class="hcard rv"><div class="hcard-img"></div><div class="hcard-label">Alex · Creative Director</div></div>
+      <div class="hcard rv d1"><div class="hcard-img"></div><div class="hcard-label">Jamie · UX Lead</div></div>
+      <div class="hcard rv d2"><div class="hcard-img"></div><div class="hcard-label">Sam · Researcher</div></div>
+      <div class="hcard rv d3"><div class="hcard-img"></div><div class="hcard-label">Morgan · Strategist</div></div>
+      <div class="hcard rv d4"><div class="hcard-img"></div><div class="hcard-label">Priya · Visual Design</div></div>
+      <div class="hcard rv" style="transition-delay:.5s"><div class="hcard-img"></div><div class="hcard-label">Kai · Dev Partner</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STUDIO PRINCIPLES ══ -->
+<section class="sec-principles" id="principles">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="s-label rv">How We Think</span>
+        <h2 class="s-title rv d1">Studio <em>Principles</em></h2>
+      </div>
+      <!-- ✏️ EDITABLE -->
+      <p class="s-body rv d2">These aren't values on a wall. They're the arguments we keep coming back to in critiques, client calls, and late-night design reviews.</p>
+    </div>
+    <div class="prin-grid">
+      <!-- ✏️ EDITABLE principles -->
+      <div class="prin-card rv"><div class="prin-num">01</div><div class="prin-text">Clarity is more valuable than cleverness.</div></div>
+      <div class="prin-card rv d1"><div class="prin-num">02</div><div class="prin-text">Good design removes decisions.</div></div>
+      <div class="prin-card rv d2"><div class="prin-num">03</div><div class="prin-text">Complexity should never reach the user.</div></div>
+      <div class="prin-card rv d3"><div class="prin-num">04</div><div class="prin-text">Design is responsibility.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THINGS WE REFUSE TO DESIGN ══ -->
+<section class="sec-refuse">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="s-label rv">Our Ethics</span>
+        <h2 class="s-title rv d1">Things We Refuse<br/><em>to Design</em></h2>
+      </div>
+      <!-- ✏️ EDITABLE -->
+      <p class="s-body rv d2">We believe design has consequences. Some briefs we won't take, no matter how much they pay.</p>
+    </div>
+    <div class="refuse-grid">
+      <!-- ✏️ EDITABLE refuse items -->
+      <div class="rcard rv"><div class="rcard-img"><div class="rx"></div></div><div class="rcard-body"><div class="rcard-title">Dark patterns</div></div></div>
+      <div class="rcard rv d1"><div class="rcard-img"><div class="rx"></div></div><div class="rcard-body"><div class="rcard-title">Manipulative interfaces</div></div></div>
+      <div class="rcard rv d2"><div class="rcard-img"><div class="rx"></div></div><div class="rcard-body"><div class="rcard-title">Addictive engagement tricks</div></div></div>
+      <div class="rcard rv d3"><div class="rcard-img"><div class="rx"></div></div><div class="rcard-body"><div class="rcard-title">Meaningless dashboards</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SCREENSHOT WALL ══ -->
+<section class="sec-wall">
+  <div class="container">
+    <span class="s-label rv">Inspiration Archive</span>
+    <h2 class="s-title rv d1">The <em>Screenshot Wall</em></h2>
+    <div class="ftabs rv d2">
+      <!-- ✏️ EDITABLE filter labels -->
+      <button class="ftab active" onclick="wallFilter(this,'all')">All</button>
+      <button class="ftab" onclick="wallFilter(this,'web')">Web</button>
+      <button class="ftab" onclick="wallFilter(this,'app')">App</button>
+      <button class="ftab" onclick="wallFilter(this,'other')">Other</button>
+    </div>
+    <div class="wall-grid rv d3">
+      <!-- ✏️ EDITABLE screenshot labels -->
+      <div class="witem" data-c="web"><div class="witem-label">Checkout Flow</div></div>
+      <div class="witem" data-c="app"><div class="witem-label">Onboarding</div></div>
+      <div class="witem" data-c="web"><div class="witem-label">Hero Section</div></div>
+      <div class="witem" data-c="other"><div class="witem-label">Branding</div></div>
+      <div class="witem" data-c="app"><div class="witem-label">Dashboard</div></div>
+      <div class="witem" data-c="web"><div class="witem-label">Landing Page</div></div>
+      <div class="witem" data-c="other"><div class="witem-label">Typography</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOLD BRANDS ══ -->
+<section class="sec-brands">
+  <div class="container">
+    <span class="s-label rv">Clients & Partners</span>
+    <h2 class="s-title rv d1"><em>Bold Brands</em> We've Worked With</h2>
+    <div class="ftabs rv d2">
+      <!-- ✏️ EDITABLE industry filters -->
+      <button class="ftab active">All</button>
+      <button class="ftab">E-commerce</button>
+      <button class="ftab">FMCG</button>
+      <button class="ftab">Automotive</button>
+      <button class="ftab">Finance</button>
+      <button class="ftab">Retail</button>
+      <button class="ftab">Startup</button>
+    </div>
+    <div class="brand-grid rv d3">
+      <!-- ✏️ EDITABLE brand name placeholders -->
+      <div class="btile"><div class="btile-text">Brand</div></div>
+      <div class="btile"><div class="btile-text">Brand</div></div>
+      <div class="btile"><div class="btile-text">Brand</div></div>
+      <div class="btile"><div class="btile-text">Brand</div></div>
+      <div class="btile"><div class="btile-text">Brand</div></div>
+      <div class="btile"><div class="btile-text">Brand</div></div>
+      <div class="btile"><div class="btile-text">Brand</div></div>
+    </div>
+    <!-- ✏️ EDITABLE -->
+    <p class="s-body rv" style="margin-top:32px">We work with brands that have ambition, budget for craft, and the courage to try something that hasn't been done before. If that's you, we should talk.</p>
+  </div>
+</section>
+
+<!-- ══ NOTEBOOK STRIP ══ -->
+<div class="notebook-strip" id="notebook">
+  <div class="nb-inner">
+    <div>
+      <span class="s-label">The Crelune Notebook</span>
+      <!-- ✏️ EDITABLE -->
+      <h2 class="nb-title">We write when we think.<br/><em>You can read along.</em></h2>
+    </div>
+    <a href="#" class="btn-ghost">Browse the Notebook ↗</a>
+  </div>
+</div>
+
+<!-- ══ DESIGN ROAST ══ -->
+<section class="sec-roast">
+  <div class="container">
+    <div class="roast-layout">
+      <div>
+        <span class="s-label rv">Interactive Feature</span>
+        <!-- ✏️ EDITABLE -->
+        <h2 class="s-title rv d1"><em>Design Roast</em></h2>
+        <p class="s-body rv d2">Submit your product. We critique it publicly — on video, without filters. This is how we sharpen both your product and our thinking.</p>
+        <div style="margin-top:32px" class="rv d3">
+          <a href="#contact" class="btn-grad">Submit Your Product ↗</a>
+        </div>
+      </div>
+      <div class="roast-preview rv d1">
+        <div style="text-align:center;padding:32px">
+          <div style="font-size:2.8rem;margin-bottom:12px">🔥</div>
+          <!-- ✏️ EDITABLE -->
+          <div style="font-family:'Newsreader',serif;font-style:italic;font-size:1.2rem;color:var(--ink-mid);line-height:1.5">Your product,<br/>honestly reviewed.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ START AN EXPERIMENT ══ -->
+<section class="sec-contact" id="contact">
+  <div class="container-narrow" style="text-align:center">
+    <span class="s-label rv" style="justify-content:center">Work With Us</span>
+    <!-- ✏️ EDITABLE -->
+    <h2 class="s-title rv d1" style="max-width:560px;margin:0 auto 16px">Ready to<br/><em>Start an Experiment?</em></h2>
+    <p class="s-body rv d2" style="margin:0 auto 44px;text-align:center">Tell us about your most interesting problem. We'll tell you if we're the right lab for it — honestly, even if the answer is no.</p>
+    <div class="cform rv d3">
+      <!-- ✏️ EDITABLE placeholders -->
+      <input class="cinput" type="text" placeholder="Your name"/>
+      <input class="cinput" type="email" placeholder="Work email"/>
+      <textarea class="cinput ctextarea" placeholder="Describe your experiment..."></textarea>
+      <button class="btn-grad" style="width:100%;justify-content:center;padding:15px 0;font-size:15px;border-radius:var(--r-full)">Send the Brief ↗</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <!-- ✏️ EDITABLE -->
+      <div class="foot-logo">Crelune</div>
+      <div class="foot-tag">Research-driven digital studio</div>
+    </div>
+    <div>
+      <div class="foot-col-title">Studio</div>
+      <div class="foot-links">
+        <a href="#">The Lab</a><a href="#">Our Work</a>
+        <a href="#">Principles</a><a href="#">Notebook</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-title">Services</div>
+      <div class="foot-links">
+        <a href="#">UX Research</a><a href="#">Product Design</a>
+        <a href="#">Brand Identity</a><a href="#">Design Roast</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-title">Connect</div>
+      <div class="foot-links">
+        <!-- ✏️ EDITABLE contact details -->
+        <a href="mailto:hello@crelune.studio">hello@crelune.studio</a>
+        <a href="#">Twitter / X</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <!-- ✏️ EDITABLE -->
+    <span>© 2025 Crelune Digital Studio</span>
+    <span>Hyderabad · Remote-first</span>
+    <span>Privacy · Terms</span>
+  </div>
+</footer>
+
+<script>
+// ── CUSTOM CURSOR
+const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+(function loop(){
+  rx+=(mx-rx)*.11;ry+=(my-ry)*.11;
+  ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';
+  requestAnimationFrame(loop);
+})();
+
+// ── SCROLL REVEAL
+const obs=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('on');
+}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// ── MOBILE MENU
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open')}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('mobMenu');
+  if(m.classList.contains('open')&&!m.contains(e.target)&&!e.target.closest('.nav-burger'))m.classList.remove('open');
+});
+
+// ── WALL FILTER
+function wallFilter(btn,cat){
+  btn.closest('.ftabs').querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.witem').forEach(i=>{
+    const match=cat==='all'||i.dataset.c===cat;
+    i.style.opacity=match?'1':'0.12';
+    i.style.pointerEvents=match?'auto':'none';
+    i.style.transform=match?'':'scale(0.96)';
+  });
+}
+
+// ── NAV SCROLL TINT
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background=
+    window.scrollY>60?'rgba(6,6,6,.96)':'rgba(8,8,8,.85)';
+});
+</script>
+</body>
+</html>
